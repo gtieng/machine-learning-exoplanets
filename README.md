@@ -28,6 +28,17 @@ X = df.drop("koi_disposition", axis=1)
 X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
 ```
 
+## Pre-Processing Using Scalers
+For best optimization, it is best for feature values to be normalized when working with machine learning algorithms. If you glance at our dataset, you'll notice that feature values can range from small negative values to larger, place digits. In the following step, we'll pre-process our data before fitting into the model. The `MinMaxScaler()` is one such tool that transforms all data to land within the range of 0 and 1.
+
+```
+from sklearn.preprocessing import MinMaxScaler
+
+X_scaler = MinMaxScaler().fit(X_train)
+X_train_scaled = X_scaler.transform(X_train)
+X_test_scaled = X_scaler.transform(X_test)
+```
+
 ## Authors
 **Gerard Tieng** - Data Analyst and Social Media Marketer \ 
 [http://www.twitter.com/gerardtieng](http://www.twitter.com/gerardtieng) \
