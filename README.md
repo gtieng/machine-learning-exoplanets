@@ -126,6 +126,6 @@ print(grid2.best_score_)
   0.8918558077436582
 ```
 ## Authors
-**Gerard Tieng** - Data Analyst and Social Media Marketer \ 
-[http://www.twitter.com/gerardtieng](http://www.twitter.com/gerardtieng) \
+**Gerard Tieng** - Data Analyst and Social Media Marketer\ 
+[http://www.twitter.com/gerardtieng](http://www.twitter.com/gerardtieng)\
 [http://www.linkedin.com/in/gerardtieng](http://www.linkedin.com/in/gerardtieng)
