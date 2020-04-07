@@ -12,6 +12,9 @@ df = df.dropna(axis="columns", how="all")
 df = df.dropna()
 df.head()
 ```
+![](https://github.com/gtieng/machine-learning-exoplanets/blob/master/1_dataframe.png)
+
+In this dataset, we will have 40 features from which our machine learning models can classify space masses as a `CANDIDATE` for an exoplanet, a `CONFIRMED` exoplanet, or a `FALSE POSITIVE` for an exoplanet, all of which are contained in the `"koi_disposition"` column.
 
 ## Authors
 **Gerard Tieng** - Data Analyst and Social Media Marketer \ 
