@@ -14,7 +14,19 @@ df.head()
 ```
 ![](https://github.com/gtieng/machine-learning-exoplanets/blob/master/1_dataframe.png)
 
-In this dataset, we will have 40 features from which our machine learning models can classify space masses as a `CANDIDATE` for an exoplanet, a `CONFIRMED` exoplanet, or a `FALSE POSITIVE` for an exoplanet, all of which are contained in the `"koi_disposition"` column.
+## Creating Training and Testing Data
+In this dataset, we will have 40 features from which our machine learning models can classify space masses as a `CANDIDATE` for an exoplanet, a `CONFIRMED` exoplanet, or a `FALSE POSITIVE` for an exoplanet, all of which are contained in the `"koi_disposition"` column. 
+
+In the following code, we will need to separate the descriptive features (`X`) from the predicted value (`y`), and then separate them once again into training (for machine learning) and testing (for model validation) sets of data. If not specified, the default are set to 75% training/25% testing.
+
+```
+from sklearn.model_selection import train_test_split
+
+y = df["koi_disposition"]
+X = df.drop("koi_disposition", axis=1)
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, random_state=0)
+```
 
 ## Authors
 **Gerard Tieng** - Data Analyst and Social Media Marketer \ 
