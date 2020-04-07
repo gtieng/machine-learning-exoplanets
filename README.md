@@ -93,15 +93,36 @@ Shifting from a regression-based model, we're going with a decision tree-based m
 from sklearn.ensemble import RandomForestClassifier
 model2 = RandomForestClassifier()
 model2.fit(X_train_scaled, y_train)
+```
 
 Already we see a major improvement with a near perfect score on the training data and 1% improvement on the testing set.
 
+```
 print(model2.score(X_train_scaled, y_train))
   0.9967575815372878
   
 print(model2.score(X_test_scaled, y_test))
   0.881578947368421
 ```
+
+## Hyperparameter Tuning the Second Model
+We'll adjust a few parameters of the RFC model in the same way we did the first model to see any improvement in results.
+
+```
+parameters2 = {"n_estimators": [10,100,1000],
+              "max_features": ["sqrt", "log2"]}
+
+grid2 = GridSearchCV(model2, parameters2)
+grid2.fit(X_train_scaled, y_train)
+```
+
+After tuning, we eaked out another 1% improvement.
+
+print(grid2.best_params_)
+  {'max_features': 'sqrt', 'n_estimators': 1000}
+
+print(grid2.best_score_)
+  0.8918558077436582
 
 ## Authors
 **Gerard Tieng** - Data Analyst and Social Media Marketer \ 
