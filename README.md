@@ -54,6 +54,39 @@ print(model1.score(X_test_scaled, y_test))
 0.8352402745995423
 ```
 
+## Hyperparameter Tuning the First Model
+With 83-84% accuracy, we can say that our model is fairly accurate but there's still room for improvement. Taking into consideration how many parameters there are to adjust in a standard Logistic Regression model (see below), we can play around with a few.
+
+```
+LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+                   intercept_scaling=1, l1_ratio=None, max_iter=100,
+                   multi_class='warn', n_jobs=None, penalty='l2',
+                   random_state=None, solver='warn', tol=0.0001, verbose=0,
+                   warm_start=False)
+```
+
+Using a tool like `GridSearchCV`, we are able to run our model multiple times, mixing-and-matching parameters until we settle on set that produces the best results. In this particular case, parameters are passed as a dictionary. We'll adjust `C` and `penalty` to see what happens.
+
+```
+from sklearn.model_selection import GridSearchCV
+
+parameters1 = {"C": [100, 10, 1, 0.1, 0.01],
+             "penalty": ["l1", "l2"]}
+
+grid1 = GridSearchCV(model1, parameters1)
+grid1.fit(X_train_scaled, y_train)
+```
+
+Here, we can print the winning combination which gave us an additional 3% improvement.
+```
+print(grid1.best_params_)
+{'C': 10, 'penalty': 'l1'}
+
+print(grid1.best_score_)
+0.8735456799542247
+```
+
+
 ## Authors
 **Gerard Tieng** - Data Analyst and Social Media Marketer \ 
 [http://www.twitter.com/gerardtieng](http://www.twitter.com/gerardtieng) \
