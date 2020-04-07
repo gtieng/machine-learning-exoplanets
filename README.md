@@ -118,12 +118,13 @@ grid2.fit(X_train_scaled, y_train)
 
 After tuning, we eaked out another 1% improvement.
 
+```
 print(grid2.best_params_)
   {'max_features': 'sqrt', 'n_estimators': 1000}
 
 print(grid2.best_score_)
   0.8918558077436582
-
+```
 ## Authors
 **Gerard Tieng** - Data Analyst and Social Media Marketer \ 
 [http://www.twitter.com/gerardtieng](http://www.twitter.com/gerardtieng) \
