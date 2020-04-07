@@ -38,6 +38,21 @@ X_scaler = MinMaxScaler().fit(X_train)
 X_train_scaled = X_scaler.transform(X_train)
 X_test_scaled = X_scaler.transform(X_test)
 ```
+## Training the First Model
+Now that our data has been split and pre-processed, we can now fit it into a model. For the first instance, we'll select Logistic Regression. This is one of the more simpler classification models and should give us a good idea about the feasability to fit a model to our data. Here is the code below:
+
+```
+from sklearn.linear_model import LogisticRegression
+
+model1 = LogisticRegression()
+model1.fit(X_train_scaled, y_train)
+
+print(model1.score(X_train_scaled, y_train))
+0.842456608811749
+
+print(model1.score(X_test_scaled, y_test))
+0.8352402745995423
+```
 
 ## Authors
 **Gerard Tieng** - Data Analyst and Social Media Marketer \ 
