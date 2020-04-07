@@ -48,10 +48,10 @@ model1 = LogisticRegression()
 model1.fit(X_train_scaled, y_train)
 
 print(model1.score(X_train_scaled, y_train))
-0.842456608811749
+  0.842456608811749
 
 print(model1.score(X_test_scaled, y_test))
-0.8352402745995423
+  0.8352402745995423
 ```
 
 ## Hyperparameter Tuning the First Model
@@ -80,12 +80,28 @@ grid1.fit(X_train_scaled, y_train)
 Here, we can print the winning combination which gave us an additional 3% improvement.
 ```
 print(grid1.best_params_)
-{'C': 10, 'penalty': 'l1'}
+  {'C': 10, 'penalty': 'l1'}
 
 print(grid1.best_score_)
-0.8735456799542247
+  0.8735456799542247
 ```
 
+## Comparing a Second Model
+Shifting from a regression-based model, we're going with a decision tree-based model--Random Forest Classifier--for our second attempt at classifying these exoplanets. In this type of machine learning, predictions aren't made along a line but rather a series of boolean sequences to get the final answer.
+
+```
+from sklearn.ensemble import RandomForestClassifier
+model2 = RandomForestClassifier()
+model2.fit(X_train_scaled, y_train)
+
+Already we see a major improvement with a near perfect score on the training data and 1% improvement on the testing set.
+
+print(model2.score(X_train_scaled, y_train))
+  0.9967575815372878
+  
+print(model2.score(X_test_scaled, y_test))
+  0.881578947368421
+```
 
 ## Authors
 **Gerard Tieng** - Data Analyst and Social Media Marketer \ 
